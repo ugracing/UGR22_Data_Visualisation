@@ -11,7 +11,6 @@ def dataReader(fileName, componentID, components):
 	for i in components:
 		if i.compID == componentID:
 			component = i
-			print("Found :", component)
 			break
 	
 	while line:
@@ -38,9 +37,9 @@ for i in components:
 		component = i
 		break
 		
-#print(component.reading["Pressure5"])
+print(component.reading["Pressure5"])
 
-#plt.plot(component.reading["Pressure5"], component.times)
+plt.plot(component.reading["Pressure5"], component.times)
 
 
 

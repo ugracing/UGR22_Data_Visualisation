@@ -25,22 +25,26 @@ class Component:
 	def separate(self, reading, dist):
 		sepRead = []
 		dists = list(dist)
-		current = list(reading)
+		current = reading.strip()
 		#print(dists)
 		for i in dists:
-				sepRead.append(list(current)[:(int(i)*2)-1])
-				for j in range((int(i)*2)-1):
-					current.pop(j)
+				sepRead.append(current[:(int(i)*2)])
+				#print(current)
+				if (int(i)*2) != len(current):
+					for j in range((int(i)*2)):
+						current = current[1:]
 		return sepRead
 
-	def translate(list):
-		return list
+	def translate(self, l):
+		temp = (int(l,16))
+		#print(l, temp)
+		return temp
 
 	def addReading(self, reading):
 		values = self.separate(reading, self.dist) 
 		#for components that record multiple values in one go, code to separate the readings accordingly
 		for i in range(len(self.qualities)):
-				nReading = values[i] # as values are recorded as hex digits and may have more modifications these must be undone to get the actual value
+				nReading = self.translate(values[i]) # as values are recorded as hex digits and may have more modifications these must be undone to get the actual value
 				if self.qualities[i] in self.reading.keys() :
 					self.reading[self.qualities[i]].append(nReading)		
 				else:
