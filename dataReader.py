@@ -36,11 +36,22 @@ for i in components:
 	if i.compID == "585":
 		component = i
 		break
-		
-print(component.reading["Pressure5"])
 
-plt.plot(component.reading["Pressure5"], component.times)
+keys = component.reading.keys()
+#for key in keys:
+#	plt.plot(component.reading[key], component.times)
+#	plt.ylabel(key)
+#	plt.xlabel("Time")
+#plt.show()
 
+
+#print(component.reading["Pressure5"])
+
+plt.plot(component.times,component.reading["Pressure5"],'ro')
+plt.plot(component.times,component.reading["Pressure6"],"bo")
+plt.plot(component.times,component.reading["Pressure7"],"go")
+plt.plot(component.times,component.reading["Pressure8"],"mo")
+plt.show()
 
 
 		

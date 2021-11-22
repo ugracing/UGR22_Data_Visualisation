@@ -1,3 +1,12 @@
 {
-  "files": {}
+  "files": {
+    "AeroReader.py": [
+      {
+        "id": "4ad31ff0-523d-4d64-99a3-3e3045b7292e",
+        "line": 11,
+        "version": 407,
+        "index": 155
+      }
+    ]
+  }
 }

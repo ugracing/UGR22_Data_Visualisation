@@ -52,6 +52,6 @@ class Component:
 		return			
 
 	def addTime(self, t):
-		self.times.append(t) # where times is a list of strings that denote when the readings were taken, index 0 on this list will correspond to index 0 on the readings
+		self.times.append(int(t.split(".")[1])) # where times is a list of strings that denote when the readings were taken, index 0 on this list will correspond to index 0 on the readings
 		return
 
