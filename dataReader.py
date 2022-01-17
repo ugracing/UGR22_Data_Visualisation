@@ -15,22 +15,25 @@ def dataReader(fileName, componentID, components):
 	
 	while line:
 		sepLine = line.split(",")
-		#print(sepLine)
-		if (sepLine[0][0].isdigit() == True):
-			compIdR = sepLine[1].split('x')[1]
-			if compIdR == componentID:
-				timeR = sepLine[0].split(" ")[1]
-				dataR = sepLine[2]
-				component.addReading(dataR)
-				component.addTime(timeR)
-				
-		else:
-			#print("IGNORED!")
-			pass
-		line = file.readline()
+		try:
+			if (sepLine[0][0].isdigit() == True):
+				compIdR = sepLine[1].split('x')[1]
+				if compIdR == componentID:
+					timeR = sepLine[0].split(" ")[1]
+					dataR = sepLine[2]
+					component.addReading(dataR)
+					component.addTime(timeR)
+					
+			else:
+				#print("IGNORED!")
+				pass
+		except Exception as e:
+			print(e)
+		finally:
+			line = file.readline()
 	
 
-dataReader("TEST10.CSV", "585", components)
+dataReader("TEST14.CSV", "585", components)
 
 for i in components:
 	if i.compID == "585":
@@ -44,13 +47,16 @@ keys = component.reading.keys()
 #	plt.xlabel("Time")
 #plt.show()
 
+cLen = len(component.times)
+startV = cLen-1000
+stopV = cLen
+print(len(component.times))
+times = component.times[startV:stopV]
 
-#print(component.reading["Pressure5"])
-
-plt.plot(component.times,component.reading["Pressure5"],'ro')
-plt.plot(component.times,component.reading["Pressure6"],"bo")
-plt.plot(component.times,component.reading["Pressure7"],"go")
-plt.plot(component.times,component.reading["Pressure8"],"mo")
+#plt.plot(times,component.reading["Pressure5"][startV:stopV],'ro')
+#plt.plot(times,component.reading["Pressure6"][startV:stopV],"bo")
+#plt.plot(times,component.reading["Pressure7"][startV:stopV],"go")
+#plt.plot(times,component.reading["Pressure8"][startV:stopV],"mo")
 plt.show()
 
 

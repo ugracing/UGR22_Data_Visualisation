@@ -3,9 +3,17 @@
     "AeroReader.py": [
       {
         "id": "4ad31ff0-523d-4d64-99a3-3e3045b7292e",
-        "line": 11,
-        "version": 407,
-        "index": 155
+        "line": 43,
+        "version": 937,
+        "index": 881
+      }
+    ],
+    "CONFIG.CSV": [
+      {
+        "id": "78e4cb8e-a041-4524-802d-5fd5e782b321",
+        "line": 14,
+        "version": 7,
+        "index": 596
       }
     ]
   }
